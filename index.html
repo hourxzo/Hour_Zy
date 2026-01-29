@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOUR ZY - Glass Design</title>
+    <title>HOUR ZY - Liquid Glass</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Battambang:wght@400;700&family=Bayon&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=Battambang:wght@400;700&display=swap');
 
         * {
             margin: 0;
@@ -16,8 +16,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Battambang', 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background: linear-gradient(135deg, #0f2947 0%, #1a4d6d 25%, #3d7fa3 50%, #4a9db5 75%, #0f2947 100%);
+            font-family: 'Inter', 'Battambang', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #0f172a 100%);
             background-size: 400% 400%;
             background-attachment: fixed;
             min-height: 100vh;
@@ -28,51 +28,113 @@
             padding: 40px 20px;
             position: relative;
             overflow-x: hidden;
+            animation: gradientShift 25s ease infinite;
         }
 
-        /* Animated background elements */
-        body::before {
-            content: '';
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -200px;
-            right: -200px;
-            filter: blur(50px);
-            animation: float 12s ease-in-out infinite;
-            z-index: 0;
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        body::after {
-            content: '';
+        /* Liquid background blobs */
+        .blob-1 {
             position: fixed;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(150, 100, 200, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -150px;
-            left: -150px;
-            filter: blur(50px);
-            animation: float 15s ease-in-out infinite reverse;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            top: -100px;
+            right: -100px;
+            filter: blur(100px);
+            animation: blobMove1 15s ease-in-out infinite;
             z-index: 0;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(40px) translateX(30px); }
+        .blob-2 {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, transparent 70%);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            bottom: -150px;
+            left: -150px;
+            filter: blur(100px);
+            animation: blobMove2 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .blob-3 {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(34, 197, 194, 0.15) 0%, transparent 70%);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 50%;
+            left: 10%;
+            filter: blur(100px);
+            animation: blobMove3 18s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes blobMove1 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(30px, -40px) scale(1.1) rotate(90deg); }
+            50% { transform: translate(-20px, 40px) scale(0.95) rotate(180deg); }
+            75% { transform: translate(40px, 20px) scale(1.05) rotate(270deg); }
+        }
+
+        @keyframes blobMove2 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(-30px, 50px) scale(1.08) rotate(90deg); }
+            50% { transform: translate(20px, -30px) scale(1.02) rotate(180deg); }
+            75% { transform: translate(-40px, -20px) scale(0.98) rotate(270deg); }
+        }
+
+        @keyframes blobMove3 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(50px, 30px) scale(1.1) rotate(90deg); }
+            50% { transform: translate(-30px, -50px) scale(0.95) rotate(180deg); }
+            75% { transform: translate(-20px, 40px) scale(1.05) rotate(270deg); }
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(60px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes softGlow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(59, 130, 246, 0.3),
+                           inset 0 1px 2px rgba(255, 255, 255, 0.2),
+                           0 8px 32px rgba(0, 0, 0, 0.15);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(59, 130, 246, 0.5),
+                           inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                           0 12px 48px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        @keyframes floatSmooth {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
         }
 
         .container {
@@ -84,70 +146,72 @@
 
         .page {
             display: none;
-            animation: fadeInUp 0.8s ease-out;
+            animation: fadeInUp 0.9s ease-out;
         }
 
         .page.active {
             display: block;
         }
 
-        /* PAGE 1 STYLES */
+        /* PAGE 1 - HEADER */
         .header {
             text-align: center;
-            margin-bottom: 80px;
-            animation: fadeInUp 0.8s ease-out;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.9s ease-out;
         }
 
         .welcome {
-            font-size: 17px;
-            color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 1.2px;
-            margin-bottom: 15px;
-            font-weight: 500;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 600;
             text-transform: uppercase;
+            animation: slideInDown 0.9s ease-out 0.1s both;
+            font-family: 'Inter', 'Outfit', sans-serif;
+            tracking: 0.15em;
         }
 
         .title {
-            font-size: 64px;
-            font-weight: 700;
+            font-size: 68px;
+            font-weight: 900;
             color: #ffffff;
             letter-spacing: -2px;
-            text-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            margin-bottom: 10px;
-            line-height: 1.2;
-            font-family: 'Bayon', 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            text-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            line-height: 1;
+            font-family: 'Outfit', 'Inter', sans-serif;
+            animation: fadeInUp 0.9s ease-out 0.1s both;
         }
 
         .subtitle {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.85);
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.72);
             font-weight: 400;
             letter-spacing: 0.5px;
-            line-height: 1.8;
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            font-family: 'Inter', 'Battambang', sans-serif;
+            animation: slideInDown 0.9s ease-out 0.2s both;
         }
 
-        .cards-container {
-            display: grid;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
+        /* LIQUID GLASS CARD */
         .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border-radius: 28px;
-            padding: 40px 35px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 45px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 0.8s ease-out;
+            animation: fadeInUp 0.9s ease-out;
             animation-fill-mode: both;
+            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            margin-bottom: 30px;
         }
 
         .glass-card::before {
@@ -162,14 +226,26 @@
                 rgba(255, 255, 255, 0.1) 0%,
                 transparent 60%
             );
-            animation: shimmer 3s ease-in-out infinite;
+            animation: liquidShine 4s ease-in-out infinite;
             pointer-events: none;
+            border-radius: 40%;
         }
 
-        @keyframes shimmer {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(20px, 20px) rotate(5deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
+        @keyframes liquidShine {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(20px, 20px) rotate(90deg); }
+            100% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.11);
+            box-shadow: 
+                0 15px 48px rgba(0, 0, 0, 0.18),
+                inset 0 1px 1px rgba(255, 255, 255, 0.3),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.15),
+                0 0 50px rgba(59, 130, 246, 0.15);
+            transform: translateY(-8px);
         }
 
         .glass-card > * {
@@ -178,120 +254,144 @@
         }
 
         .card-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
+            font-size: 54px;
+            margin-bottom: 20px;
             display: inline-block;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            animation: floatSmooth 3s ease-in-out infinite;
         }
 
         .card-title {
-            font-size: 26px;
+            font-size: 32px;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
-            line-height: 1.5;
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.3;
+            font-family: 'Outfit', 'Inter', 'Battambang', sans-serif;
         }
 
         .card-description {
             font-size: 16px;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.9;
-            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+            margin-bottom: 18px;
             font-weight: 400;
             letter-spacing: 0.2px;
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Battambang', 'Inter', sans-serif;
         }
 
         .card-quote {
             font-style: italic;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.8;
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.7;
+            font-family: 'Battambang', 'Inter', sans-serif;
             font-size: 15px;
             margin: 15px 0 0 0;
-            padding-left: 15px;
-            border-left: 3px solid rgba(255, 255, 255, 0.3);
+            padding-left: 16px;
+            border-left: 3px solid rgba(59, 130, 246, 0.5);
+            transition: all 0.4s ease;
+            font-weight: 400;
+        }
+
+        .glass-card:hover .card-quote {
+            border-left-color: rgba(59, 130, 246, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+            padding-left: 18px;
         }
 
         .card-link {
             display: inline-block;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 16px;
+            padding: 13px 28px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1.5px solid rgba(59, 130, 246, 0.35);
+            border-radius: 18px;
             color: #ffffff;
             text-decoration: none;
             font-size: 15px;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            letter-spacing: 0.2px;
-            margin-top: 15px;
-            border: none;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+            letter-spacing: 0.3px;
+            margin-top: 18px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', 'Outfit', 'Battambang', sans-serif;
+        }
+
+        .card-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: left 0.5s ease;
+            z-index: 0;
+        }
+
+        .card-link:hover::before {
+            left: 100%;
         }
 
         .card-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(59, 130, 246, 0.25);
+            border-color: rgba(59, 130, 246, 0.55);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
         }
 
         .card-link:active {
             transform: translateY(-1px);
         }
 
-        /* PAGE 2 STYLES */
+        /* PAGE 2 HEADER */
         .header-page2 {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease-out;
+            margin-bottom: 35px;
+            animation: fadeInUp 0.9s ease-out;
         }
 
         .back-btn {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 16px;
             color: #ffffff;
-            font-size: 18px;
-            width: 45px;
-            height: 45px;
+            font-size: 22px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
-            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
         }
 
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.35);
             transform: translateX(-5px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
         }
 
         .page-title {
             font-size: 32px;
-            font-weight: 700;
+            font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.8px;
-            line-height: 1.4;
-            font-family: 'Bayon', 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.3;
+            font-family: 'Outfit', 'Inter', 'Battambang', sans-serif;
             flex: 1;
             text-align: center;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .note-input {
@@ -299,29 +399,31 @@
             min-height: 200px;
             padding: 20px;
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
             color: #ffffff;
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Battambang', 'Inter', sans-serif;
             font-size: 16px;
             line-height: 1.8;
             resize: vertical;
             transition: all 0.4s ease;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            margin-top: 20px;
             margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            font-weight: 400;
         }
 
         .note-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.4);
         }
 
         .note-input:focus {
             outline: none;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.11);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.15), 
+                       inset 0 0 10px rgba(59, 130, 246, 0.05);
         }
 
         .button-container {
@@ -333,295 +435,179 @@
 
         .action-btn {
             padding: 12px 16px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 12px;
             color: #ffffff;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Inter', 'Outfit', 'Battambang', sans-serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            pointer-events: none;
+        }
+
+        .action-btn:active::after {
+            width: 300px;
+            height: 300px;
         }
 
         .action-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.13);
+            border-color: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .action-btn:active {
             transform: translateY(0);
         }
 
-        .save-btn:hover {
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
-        }
-
-        .clear-btn:hover {
-            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
-        }
-
-        .delete-btn:hover {
-            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
-        }
-
-        .saved-notes {
-            margin-top: 30px;
-        }
-
         .note-item {
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 14px;
             padding: 15px;
             margin-bottom: 12px;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.88);
             line-height: 1.8;
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Battambang', 'Inter', sans-serif;
             font-size: 15px;
             animation: fadeInUp 0.4s ease-out;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            font-weight: 400;
+        }
+
+        .note-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+            transform: translateX(5px);
         }
 
         .note-time {
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.45);
             margin-top: 8px;
-            font-weight: 400;
+            font-weight: 500;
+            font-family: 'Inter', 'Outfit', sans-serif;
         }
 
         .divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
             margin: 30px 0;
         }
 
         .contact-section {
             background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border-radius: 28px;
-            padding: 50px 40px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
             margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease-out 0.8s both;
+            animation: fadeInUp 0.9s ease-out 0.6s both;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-section:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.11);
+            box-shadow: 
+                0 15px 48px rgba(0, 0, 0, 0.18),
+                inset 0 1px 1px rgba(255, 255, 255, 0.3),
+                0 0 50px rgba(59, 130, 246, 0.12);
+            transform: translateY(-6px);
         }
 
         .section-title {
             font-size: 32px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
             text-align: center;
-            letter-spacing: -0.8px;
-            line-height: 1.4;
-            font-family: 'Bayon', 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: -0.5px;
+            line-height: 1.3;
+            font-family: 'Outfit', 'Inter', 'Battambang', sans-serif;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         .button-group {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
+            gap: 12px;
         }
 
         .contact-btn {
-            padding: 18px 30px;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 16px 28px;
+            background: rgba(59, 130, 246, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(59, 130, 246, 0.25);
             border-radius: 18px;
             color: #ffffff;
-            font-size: 17px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             text-decoration: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                0 4px 15px rgba(59, 130, 246, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.15);
             position: relative;
             overflow: hidden;
             letter-spacing: 0.3px;
+            font-family: 'Inter', 'Outfit', 'Battambang', sans-serif;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact-btn:hover::before {
+            left: 100%;
         }
 
         .contact-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
             transform: translateY(-4px);
             box-shadow: 
-                0 12px 35px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        .contact-btn:active {
-            transform: translateY(-1px);
-        }
-
-        .btn-icon {
-            font-size: 20px;
-        }
-
-        .footer-text {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.65);
-            font-size: 14px;
-            letter-spacing: 0.3px;
-            font-weight: 400;
-            font-family: 'Battambang', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .title {
-                font-size: 42px;
-            }
-
-            .glass-card {
-                padding: 30px 25px;
-            }
-
-            .button-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-btn {
-                font-size: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title {
-                font-size: 36px;
-            }
-
-            .glass-card {
-                padding: 25px 20px;
-                border-radius: 20px;
-            }
-
-            .note-input {
-                min-height: 150px;
-                font-size: 15px;
-            }
-
-            .action-btn {
-                font-size: 13px;
-            }
-
-            .contact-btn {
-                font-size: 14px;
-                padding: 14px 20px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- PAGE 1: HOME PAGE -->
-    <div id="page1" class="page active">
-        <div class="container">
-            <div class="header">
-                <div class="welcome">Welcome!</div>
-                <h1 class="title">HOUR ZY!</h1>
-                <p class="subtitle">ពិសេសអ្វីដែលយើងផ្តល់ជូនអ្នក</p>
-            </div>
-
-            <div class="cards-container">
-                <div class="glass-card">
-                    <div class="card-icon">📚</div>
-                    <h2 class="card-title">Content Creation</h2>
-                    <p class="card-description">តែងសេចក្ដី</p>
-                    <p class="card-quote">ប្រធាន «សេរីភាព គឺជាបំណងប្រាថ្នារបស់មនុស្ស»</p>
-                    <button class="card-link" onclick="goToPage2()">អាន</button>
-                </div>
-            </div>
-
-            <div class="contact-section">
-                <h2 class="section-title">ទំនាក់ទំនងយើងខ្ញុំ</h2>
-                
-                <div class="button-group">
-                    <a href="https://t.me/Hour_zoa" target="_blank" class="contact-btn">
-                        <span>Telegram</span>
-                    </a>
-                    <a href="https://youtube.com/@hour_zy" target="_blank" class="contact-btn">
-                        <span>YouTube</span>
-                    </a>
-                    <a href="tel:+855972471969" class="contact-btn">
-                        <span>Call</span>
-                    </a>
-                </div>
-
-                <div class="divider"></div>
-
-                <p class="footer-text">
-                    ការឆ្លើយតប ២៤ម៉ោង អគុណសម្រាប់ការគាំទ្រ 🙏
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PAGE 2: NOTES PAGE -->
-    <div id="page2" class="page">
-        <div class="container">
-            <div class="header-page2">
-                <button class="back-btn" onclick="goToPage1()">←</button>
-                <h1 class="page-title">Content Creation</h1>
-                <div style="width: 45px;"></div>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-icon">📝</div>
-                
-                <h2 class="card-title">តែងសេចក្ដី</h2>
-                
-                <p class="card-quote" style="margin-top: 15px; margin-bottom: 30px;">
-                    ប្រធាន «សេរីភាព គឺជាបំណងប្រាថ្នារបស់មនុស្ស»
-                </p>
-
-                <p class="card-description" style="margin-top: 20px;">
-                    សូមស្វាគមន៍មក HOUR ZY ដែលជាកន្លែងដែលយើងបង្កើតលក្ខណៈ original content ដែលពិតប្រាកដ ប្រកបដោយការច្នៃប្រឌិត និងគុណភាពខ្ពស់។ យើងចូលចិត្តក្នុងការផ្ដល់ជូនលោកអ្នកនូវលក្ខណៈដែលមានន័យ និងចម្រើន។
-                </p>
-
-                <p class="card-description">
-                    ខ្ញុំសូមបង្កើតលក្ខណៈទាក់ទងដូចឧទាហរណ៍មួយ ដែលក្នុងលោកខ្ញុំវា គឺបង្កើតលក្ខណៈដែលពិតប្រាកដ ប្រកបដោយការច្នៃប្រឌិត និងគុណភាព។ យើងគឺជាក្រុមដែលម្នាក់ក្នុងមួយក្នុងការបង្កើតលក្ខណៈដែលមានលក្ខណៈពិសេស និងសម្បូរក្នុង។
-                </p>
-
-                <div class="divider"></div>
-
-                <p class="card-description">
-                    យើងច្រើនលើក បាននិយាយថា សេរីភាព គឺជាចំណុចសំខាន់បំផុត។ ដូច្នេះ យើងនឹងតែងតែផ្តល់ឱ្យលោកអ្នកនូវលក្ខណៈដែលមានលក្ខណៈសម្បូរក្នុង ហើយឱ្យលោកអ្នកមានសេរីភាពក្នុងការកំណត់មតិលើលក្ខណៈរបស់យើង។
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Page Navigation
-        function goToPage1() {
-            document.getElementById('page1').classList.add('active');
-            document.getElementById('page2').classList.remove('active');
-        }
-
-        function goToPage2() {
-            document.getElementById('page1').classList.remove('active');
-            document.getElementById('page2').classList.add('active');
-        }
-    </script>
-</body>
-</html>
+                0 12px 32px rgba(59, 130, 246, 0.2),
+                inset 0 1px 1px rgba(255, 255, 25
