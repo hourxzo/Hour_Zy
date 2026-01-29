@@ -611,3 +611,240 @@
             box-shadow: 
                 0 12px 32px rgba(59, 130, 246, 0.2),
                 inset 0 1px 1px rgba(255, 255, 25
+}
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-icon {
+            font-size: 20px;
+        }
+
+        .footer-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            font-weight: 500;
+            font-family: 'Inter', 'Battambang', sans-serif;
+            line-height: 1.8;
+            animation: fadeInUp 0.9s ease-out 0.9s both;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 46px;
+                letter-spacing: -1.5px;
+            }
+
+            .glass-card {
+                padding: 35px 28px;
+                border-radius: 24px;
+            }
+
+            .button-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-btn {
+                font-size: 15px;
+                padding: 14px 24px;
+            }
+
+            .card-link {
+                font-size: 14px;
+                padding: 11px 24px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 38px;
+                letter-spacing: -1.2px;
+            }
+
+            .welcome {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+                letter-spacing: 0.3px;
+            }
+
+            .glass-card {
+                padding: 28px 20px;
+                border-radius: 20px;
+            }
+
+            .card-title {
+                font-size: 26px;
+                margin-bottom: 10px;
+            }
+
+            .card-description {
+                font-size: 15px;
+            }
+
+            .card-quote {
+                font-size: 14px;
+                margin-top: 12px;
+            }
+
+            .card-link {
+                font-size: 13px;
+                padding: 10px 20px;
+                margin-top: 15px;
+            }
+
+            .note-input {
+                min-height: 150px;
+                font-size: 15px;
+                padding: 16px;
+                border-radius: 16px;
+            }
+
+            .action-btn {
+                font-size: 13px;
+                padding: 10px 14px;
+            }
+
+            .contact-btn {
+                font-size: 14px;
+                padding: 14px 20px;
+                border-radius: 16px;
+            }
+
+            .page-title {
+                font-size: 28px;
+                letter-spacing: -0.5px;
+            }
+
+            .contact-section {
+                padding: 40px 28px;
+                border-radius: 24px;
+            }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div class="blob-3"></div>
+
+    <!-- PAGE 1 -->
+    <div id="page1" class="page active">
+        <div class="container">
+            <div class="header">
+                <div class="welcome">Welcome</div>
+                <h1 class="title">HOUR ZY</h1>
+                <p class="subtitle">For testing and development</p>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-icon">📚</div>
+                <h2 class="card-title">Content Creation</h2>
+                <p class="card-description">តែងសេចក្ដី</p>
+                
+                <p class="card-description" style="margin-top: 17px;">ប្រធាន «សេរីភាព គឺជាបំណងប្រាថ្នារបស់មនុស្ស»</p>
+                <button class="card-link" onclick="goToPage2()">ចុចអាន</button>
+            </div>
+
+            <div class="contact-section">
+                <h2 class="section-title">Contact me</h2>
+                
+                <div class="button-group">
+                    <a href="https://t.me/Hour_zoa" target="_blank" class="contact-btn">
+                        <span class="btn-icon"></span>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://youtube.com/@hour_zy" target="_blank" class="contact-btn">
+                        <span class="btn-icon"></span>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="tel:+855972471969" class="contact-btn">
+                        <span class="btn-icon"></span>
+                        <span>Call</span>
+                    </a>
+                </div>
+
+                <div class="divider"></div>
+
+                <p class="footer-text">
+                    Thank you for supporting the testing and development of the website. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div id="page2" class="page">
+        <div class="container">
+            <div class="header-page2">
+                <button class="back-btn" onclick="goToPage1()">←</button>
+                <h1 class="page-title">Content Creation</h1>
+                <div style="width: 48px;"></div>
+            </div>
+
+            <div class="glass-card">
+                <div class="card-icon">📝</div>
+                
+                <h2 class="card-title">តែងសេចក្ដី</h2>
+                
+                
+                <p class="card-description" style="margin-top: 17px;">
+                    ប្រធាន៖ ចូលបកស្រាយទស្សនៈដែលថា «សេរីភាព គឺជាបំណងប្រាថ្នារបស់មនុស្ស»
+                </p>
+
+                <p class="card-description" style="margin-top: 17px;">
+                  &#12644ជាទូទៅ មនុស្សគ្រប់រូបដែលកើតមកលើលោកនេះ តែងតែប្រាថ្នាចង់រស់នៅដោយមានសេចក្តីថ្លៃថ្នូរ មានសិទ្ធិក្នុងការសម្រេចចិត្តដោយខ្លួនឯង និងអាចគ្រប់គ្រងជីវិតរបស់ខ្លួនបាន ដោយមិនត្រូវរឹតត្បិត ឬបង្ខំដោយអ្នកដទៃ។ ដោយហេតុនេះហើយ ទើបមានទស្សនៈមួយលើកឡើងថា «សេរីភាពគឺជាបំណងប្រាថ្នារបស់មនុស្ស»។
+                <p class="card-description" style="margin-top: 17px;">
+                  &#12644 តើទស្សនៈខាងលើមានខ្លឹមសារអប់រំ និងអត្ថន័យយ៉ាងដូចម្តេចខ្លះ?
+                <p class="card-description" style="margin-top: 17px;">
+                   &#12644 ដើម្បីបកស្រាយទស្សនៈខាងលើឱ្យបានក្បោះក្បាយ យើងគប្បីយល់ន័យនៃពាក្យគន្លឹះជាមុនសិន។ ពាក្យថា «សេរីភាព» គឺសំដៅលើសិទ្ធិអំណាច និងភាពម្ចាស់ការលើខ្លួនឯង ក្នុងការធ្វើអ្វីមួយដោយគ្មានការបង្ខិតបង្ខំ ប៉ុន្តែត្រូវស្ថិតក្នុងរង្វង់ច្បាប់។ រីឯពាក្យថា «បំណងប្រាថ្នា» គឺសំដៅលើការចង់បាន ការប៉ងប្រាថ្នា ឬគោលដៅដែលមនុស្សម្នាក់ៗចង់សម្រេចឱ្យបានក្នុងជីវិត។ តាមរយៈន័យនៃពាក្យគន្លឹះខាងលើ ទស្សនៈនេះចង់មានន័យថា សេរីភាពគឺជាតម្រូវការចាំបាច់បំផុត និងជាគោលដៅចម្បងដែលមនុស្សគ្រប់រូបស្រមៃចង់បាន ដើម្បីរស់នៅដោយមានសេចក្តីសុខ និងសេចក្តីថ្លៃថ្នូរ។ 
+                    <p class="card-description" style="margin-top: 17px;">
+&#12644 ជាការពិតណាស់សេរីភាពគឺជាតម្លៃដ៏សំខាន់សម្រាប់ជីវិតមនុស្ស ព្រោះវាជាមូលដ្ឋាននៃសេចក្តីសុខ និងការអភិវឌ្ឍខ្លួនឯង។ ប្រសិនបើមនុស្សរស់នៅក្រោមការរឹតត្បិត ឬការបង្ខំ នោះសមត្ថភាព និងតម្លៃជាមនុស្សនឹងត្រូវបាត់បង់ ប្រៀបដូចជាបក្សីដែលមានស្លាបតែត្រូវគេដាក់ក្នុងទ្រុង។ ដើម្បីបញ្ជាក់ថា សេរីភាពពិតជាបំណងប្រាថ្នាដែលមនុស្សហ៊ានលះបង់គ្រប់យ៉ាងដើម្បីទទួលបាន យើងអាចពិនិត្យបានតាមឧទាហរណ៍ក្នុងអក្សរសិល្ព៍ខ្មែរ។ ឧទាហរណ៍ ក្នុងរឿង «ទុំទាវ» ដែលបានបង្ហាញយ៉ាងច្បាស់ពីការប្រាថ្នាចង់បានសេរីភាពក្នុងសេចក្តីស្នេហា។ តួអង្គទុំ និងទាវ បានតស៊ូប្រឆាំងនឹងទំនៀមទម្លាប់បុរាណ និងការបង្ខំរបស់យាយម៉ែន ដែលចង់ឱ្យទាវរៀបការជាមួយអ្នកមានអំណាច។ សម្រាប់ពួកគេ សេរីភាពក្នុងការជ្រើសរើសគូស្រករតាមបេះដូង គឺមានតម្លៃខ្ពស់ណាស់ រហូតដល់ពួកគេហ៊ានលះបង់ជីវិតដើម្បីការពារសេចក្តីស្នេហានោះ។ បន្ថែមពីនេះ នៅក្នុងរឿង «ភូមិតិរច្ឆាន» ដោយបានបង្ហាញពីការតស៊ូរបស់ប្រជាជនខ្មែរ ដើម្បីទាមទារសេរីភាព និងឯករាជ្យភាព។ ធ្វើឱ្យអ្នកភូមិបានរួមគ្នា តស៊ូប្រឆាំងនឹងការជិះជាន់របស់អាណានិគមបារាំង ដែលបានដកហូតសេរីភាព និងបង្ខំឱ្យបង់ពន្ធយ៉ាងធ្ងន់។ ការតស៊ូនេះបង្ហាញថា សេរីភាពក្នុងការរស់នៅដោយឯករាជ្យលើទឹកដីខ្លួនឯង គឺជាបំណងប្រាថ្នាដែលមានតម្លៃយ៉ាងខ្លាំងសម្រាប់មនុស្សគ្រប់រូប។ 
+                    <p class="card-description" style="margin-top: 17px;">
+                   &#12644 សរុបសេចក្តីមក តាមរយៈការបកស្រាយយ៉ាងលម្អិត និងយោងតាមឧទាហរណ៍ក្នុងអក្សរសិល្ព៍ខាងលើ យើងអាចបញ្ជាក់បានថា សេរីភាពគឺជាជាបំណងប្រាថ្នាសំខាន់របស់មនុស្សគ្រប់រូបគ្រប់សម័យកាល។ សេរីភាពមិនមែនត្រឹមតែការរស់នៅដោយគ្មានការបង្ខំប៉ុណ្ណោះទេ ប៉ុន្តែជាការរស់នៅដោយមានសេចក្តីថ្លៃថ្នូរ និងយុត្តិធម៌ក្នុងសង្គមផងដែរ។
+                     <p class="card-description" style="margin-top: 17px;">
+                       &#12644 ឆ្លងតាមការបកស្រាយនេះ..................។ក្នុងនាមយើងជាសិស្សានុសិស្ស..................។
+                <div class="divider"></div>
+
+                <p class="card-description">
+                    «Thank you for reading to the end. Don't forget about My website.»
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToPage1() {
+            document.getElementById('page1').classList.add('active');
+            document.getElementById('page2').classList.remove('active');
+        }
+
+        function goToPage2() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+        }
+    </script>
+</body>
+</html>
